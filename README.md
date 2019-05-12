@@ -2,13 +2,13 @@
 Proyecto con base a la participación en el proyecto de desarrollo global de software
 
 ### Tecnologías ocupadas
-HTML 5
-CSS 3
-JavaScript
-PHP
-SQL
-CodeIgniter Web Framework
-Bootstrap 4.3.1
+* HTML 5
+* CSS 3
+* JavaScript
+* PHP
+* SQL
+* CodeIgniter Web Framework
+* Bootstrap 4.3.1
 
 ### Estándar de codificación
 
