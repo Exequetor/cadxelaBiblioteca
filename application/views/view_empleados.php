@@ -7,7 +7,7 @@
 <body>
 	<div class="container">
 		<h2>Opciones de empleados</h2><hr>
-		<form action="" method="post">
+		<form action="" method="POST">
 			<div>
 				<input type="text" name="id_empleado" id="id_empleado" value="">
 			</div>
