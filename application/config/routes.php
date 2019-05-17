@@ -52,3 +52,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'biblioteca_controller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+/**
+* Autor: Manuel Santiago
+* Resumen: Definimos algunas rutas para libros
+**/
+$route['libros'] = 'libro_controller';
+$route['libros/buscar'] = 'libro_controller/buscarLibro';
+
+/**
+* Autor: Luisa Ivonne
+* Resumen: Definimos algunas rutas para adeudos
+**/
+$route['adeudos'] = 'adeudos_controller';
+$route['adeudos/insertar']='adeudos_controller/insertar';

@@ -71,6 +71,9 @@
 				</table>
 			</div>
 		</form>
+		<a href="<?php echo base_url().'libros'?>">
+			Ir a busqueda de libro
+		</a>
 	</div>
 </body>
 </html>
