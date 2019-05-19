@@ -7,9 +7,14 @@
 <body>
 	<div class="container">
 		<h2>Opciones de empleados</h2><hr>
-		<form action="<?php echo base_url();?>biblioteca_controller/" method="POST">
+		<form action="<?php echo base_url();?>empleado_controller/guardar_empleado/" method="POST">
 			<div>
-				<input type="text" name="id_empleado" id="id_empleado" value="">
+				<div class="input-group form-group">
+				<span class="input-group-addon">
+							Identificador de empledo
+						</span>
+				<input type="text" name="id_empleado" id="id_empleado" value="" placeholder="Identificador de empledo">
+			</div>
 			</div>
 			<div class="row">
 				<div class="col colxs-6">
@@ -51,22 +56,35 @@
 				<input type="submit" name="guardar" class="btn btn-success" value="Guardar" ></input>
 				<a href="" class="btn btn-primary">Nuevo empleado</a>
 			</div>
-			<div class="container">
+			
+		</form>
+
+		<div class="container">
 				<h3>Empleados Registrados</h3><hr>
 				<table class="table table-bordered table-hover" >
-					<thead>
+					<thead class="text-center">
 						<th>Identificador</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
 						<th>Rol</th>
 						<th>Email</th>
+						<th colspan="2">Opciones</th>
 					</thead>
 					<tbody>
-						
+						<?php
+							foreach ($Empleados as $empleadoss) {
+								echo "<tr><td>".$empleadoss->id_empleado."</td>".
+									"<td>".$empleadoss->nombre."</td>".
+									"<td>".$empleadoss->apellidos."</td>".
+									"<td>".$empleadoss->rol."</td>".
+									"<td>".$empleadoss->email."</td>".
+									"<td><a href='empleado_controller/modificar_empleado/".$empleadoss->id_empleado."'>Modificar</a></td>".
+									"<td><a href='empleado_controller/eliminar_empleado/".$empleadoss->id_empleado."'>Eliminar</a></td>"."</tr>";
+							}
+						?>
 					</tbody>
 				</table>
 			</div>
-		</form>
 		<a href="<?php echo base_url().'libros'?>">
 			Ir a busqueda de libro
 		</a>
