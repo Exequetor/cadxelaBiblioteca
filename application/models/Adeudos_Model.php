@@ -2,15 +2,12 @@
 class Adeudos_Model extends CI_Model{
 	/* Definición de atributos */
 	public $id_adeudo;
-<<<<<<< HEAD
 	public $id_libro;
 	public $matricula;
 	public $nombre;
 	public $apellidos;
-=======
 	public $matricula;
 	public $nombre;
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 	public $titulo;
 	public $descripcion;
 	public $fecha_adeudo;
@@ -50,17 +47,13 @@ class Adeudos_Model extends CI_Model{
 					'matricula_estudiante'=>$this->input->post('matricula_estudiante'),
 					'id_libro'=>$this->input->post('id_libro'),
 					'descripcion'=>$this->input->post('descripcion'),
-<<<<<<< HEAD
 					'fecha_adeudo'=>$this->input->post('fechaadeudo'),
 					'fecha_reposicion'=>NULL
 			);
 			//print_r($adeudos);
-=======
 					'fecha_adeudo'=>$this->input->post('fecha_adeudo'),
 					'fecha_reposicion'=>$this->input->post('fecha_reposicion')
 			);
-
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 			$result = $this->db->insert('adeudos',$adeudos);
 			if($result)
 				return true;
@@ -82,5 +75,41 @@ class Adeudos_Model extends CI_Model{
 		$results = $this->db->get();
 		
 		return $results->result();
+	}
+
+	/*
+	*
+	* Autor: Manuel Santiago
+	* Resumen: Este método verifica a todos aquellos prestamos atrasados para registrar su adeudo correspondiente
+	* Este metodo debe ser llamado a traves de un cron job
+	*/
+	public function registrarAdeudoAutomatico(){
+		$this->load->helper('date');
+		$this->db->select('matricula_estudiante, id_libro');
+        $this->db->from('prestamos');
+        $this->db->where("DATEDIFF(NOW(), fecha_devolucion) > 0");
+
+		$results = $this->db->get();
+		
+		foreach ($results->result() as $result) {
+			$this->db->select('*');
+	        $this->db->from('adeudos');
+	        $this->db->where("matricula_estudiante", $result->matricula_estudiante);
+	        $this->db->where("id_libro", $result->id_libro);
+	        $r = $this->db->get();
+	        //echo $this->db->affected_rows()."-";
+	        if ($this->db->affected_rows() == 0) {
+
+				$adeudos=array(
+						'matricula_estudiante'=>$result->matricula_estudiante,
+						'id_libro'=>$result->id_libro,
+						'descripcion'=>"Adeudo por atraso en la entrega",
+						'fecha_adeudo'=> now(),
+						'fecha_reposicion'=>NULL
+				);
+
+				$this->db->insert('adeudos',$adeudos);
+			}
+		}
 	}
 }
