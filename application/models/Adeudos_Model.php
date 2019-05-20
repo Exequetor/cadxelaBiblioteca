@@ -2,10 +2,15 @@
 class Adeudos_Model extends CI_Model{
 	/* Definición de atributos */
 	public $id_adeudo;
+<<<<<<< HEAD
 	public $id_libro;
 	public $matricula;
 	public $nombre;
 	public $apellidos;
+=======
+	public $matricula;
+	public $nombre;
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 	public $titulo;
 	public $descripcion;
 	public $fecha_adeudo;
@@ -45,10 +50,17 @@ class Adeudos_Model extends CI_Model{
 					'matricula_estudiante'=>$this->input->post('matricula_estudiante'),
 					'id_libro'=>$this->input->post('id_libro'),
 					'descripcion'=>$this->input->post('descripcion'),
+<<<<<<< HEAD
 					'fecha_adeudo'=>$this->input->post('fechaadeudo'),
 					'fecha_reposicion'=>NULL
 			);
 			//print_r($adeudos);
+=======
+					'fecha_adeudo'=>$this->input->post('fecha_adeudo'),
+					'fecha_reposicion'=>$this->input->post('fecha_reposicion')
+			);
+
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 			$result = $this->db->insert('adeudos',$adeudos);
 			if($result)
 				return true;

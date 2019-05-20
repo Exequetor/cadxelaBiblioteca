@@ -59,7 +59,11 @@ class Libro_model extends CI_Model {
 		$this->db->join('autores_x_libro al', 'al.id_libro = l.id_libro', 'left');
 		$this->db->join('autores a', 'a.id_autor = al.id_autor', 'left');
 		$this->db->join('categorias c', 'c.id_categoria = l.id_categoria', 'left');
+<<<<<<< HEAD
 		$this->db->like('l.titulo', $nombre);
+=======
+		$this->db->like('titulo', $nombre);
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 
 		$query = $this->db->get();
 
@@ -71,6 +75,7 @@ class Libro_model extends CI_Model {
 		}	
 	}
 
+<<<<<<< HEAD
 	/*
 	*
 	* Autor: Manuel Santiago
@@ -168,4 +173,6 @@ class Libro_model extends CI_Model {
 			return false;
 	}
 
+=======
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 }

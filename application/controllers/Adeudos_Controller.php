@@ -19,6 +19,12 @@ class Adeudos_Controller extends CI_Controller{
 	public function index(){
 		$Datos['Estudiantes']=$this->AM->obtenerEstudiantes();
 		$Datos['LibrosPrestados']=$this->AM->obtenerLibrosPrestados();
+<<<<<<< HEAD
+=======
+		/*$datos = array(
+			'dato_titulo' => $titulo
+		);*/
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 
 		$this->load->view('adeudos_page',$Datos);
 	}

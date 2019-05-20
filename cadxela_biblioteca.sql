@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 10:19:48
+-- Tiempo de generación: 16-05-2019 a las 04:44:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -34,7 +34,8 @@ CREATE TABLE `adeudos` (
   `id_libro` int(10) UNSIGNED NOT NULL COMMENT 'Identificador del libro que adeuda el estudiante',
   `descripcion` varchar(255) NOT NULL COMMENT 'Descripción breve del motivo del adeudo utilizando como máximo 255 caracteres',
   `fecha_adeudo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha y hora relativo al epoch en que se generó el adeudo. Este campo se genera al momento de insertar el registro',
-  `fecha_reposicion` timestamp NULL DEFAULT NULL COMMENT 'Fecha y hora relativo al epoch en que se repuso el libro que se adeudaba. Si el campo es nulo, entonces significa que el estudiante aún tiene el adeudo'
+  `fecha_reposicion` timestamp NULL DEFAULT NULL COMMENT 'Fecha y hora relativo al epoch en que se repuso el libro que se adeudaba. Si el campo es nulo, entonces significa que el estudiante aún tiene el adeudo y no ha repuesto el libro',
+  `estado` tinyint(1) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Bandera que indica el estado del adeudo. 1 = adeudo activo, 0 = adeudo saldado. Default = 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla que registra los adeudos que se han generado';
 
 -- --------------------------------------------------------
@@ -126,7 +127,8 @@ CREATE TABLE `prestamos` (
   `id_libro` int(10) UNSIGNED NOT NULL COMMENT 'Identificador del libro que se está prestando',
   `fecha_prestamo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha y hora relativo al epoch en que se realizó el préstamo. Se genera al momento de crear el registro',
   `fecha_limite` timestamp NULL DEFAULT NULL COMMENT 'Fecha y hora relativo al epoch para el tiempo límite de entrega. La fecha límite se debe generar enseguida después de insertar el registro realizando un update en el modelo',
-  `fecha_devolucion` timestamp NULL DEFAULT NULL COMMENT 'Fecha y hora relativo al epoch que representa el momento en que se realizó la devolución del libro. Es un campo nulo que debe ser actualizado cuando el estudiante devuelva el libro. Si el valor es nulo, significa que el estudiante aún no ha devuelto el libro.'
+  `fecha_devolucion` timestamp NULL DEFAULT NULL COMMENT 'Fecha y hora relativo al epoch que representa el momento en que se realizó la devolución del libro. Es un campo nulo que debe ser actualizado cuando el estudiante devuelva el libro. Si el valor es nulo, significa que el estudiante aún no ha devuelto el libro.',
+  `estado` tinyint(1) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Bandera que indica el estado del prestamo. 1 = libro prestado, 0 = libro devuelto a la biblioteca. Default = 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

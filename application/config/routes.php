@@ -52,12 +52,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 /**
 * Autor: Manuel Santiago
 * Resumen: Definimos algunas rutas para libros
 **/
 $route['libros'] = 'libro_controller';
 $route['libros/buscar'] = 'libro_controller/buscarLibro';
+<<<<<<< HEAD
 $route['libros/registro'] = 'libro_controller/renderRegistro';
 $route['libros/registro/send'] = 'libro_controller/insertarLibro';
 $route['libros/registro/autor'] = 'libro_controller/insertarAutor';
@@ -65,9 +70,17 @@ $route['libros/registro/categoria'] = 'libro_controller/insertarCategoria';
 $route['libros/registro/status'] = 'libro_controller/cambiarEstado';
 $route['libros/buscar_x_id'] = 'libro_controller/buscarLibroXId';
 $route['libros/editar'] = 'libro_controller/actualizarLibro';
+=======
+
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 /**
 * Autor: Luisa Ivonne
 * Resumen: Definimos algunas rutas para adeudos
 **/
+<<<<<<< HEAD
 $route['adeudos'] = 'Adeudos_Controller';
 $route['adeudos/insertar']='Adeudos_Controller/insertar';
+=======
+$route['adeudos'] = 'adeudos_controller';
+$route['adeudos/insertar']='adeudos_controller/insertar';
+>>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
