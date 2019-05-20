@@ -52,3 +52,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+/**
+* Autor: Manuel Santiago
+* Resumen: Definimos algunas rutas para libros
+**/
+$route['libros'] = 'libro_controller';
+$route['libros/buscar'] = 'libro_controller/buscarLibro';
+$route['libros/registro'] = 'libro_controller/renderRegistro';
+$route['libros/registro/send'] = 'libro_controller/insertarLibro';
+$route['libros/registro/autor'] = 'libro_controller/insertarAutor';
+$route['libros/registro/categoria'] = 'libro_controller/insertarCategoria';
+$route['libros/registro/status'] = 'libro_controller/cambiarEstado';
+$route['libros/buscar_x_id'] = 'libro_controller/buscarLibroXId';
+$route['libros/editar'] = 'libro_controller/actualizarLibro';
+/**
+* Autor: Luisa Ivonne
+* Resumen: Definimos algunas rutas para adeudos
+**/
+$route['adeudos'] = 'Adeudos_Controller';
+$route['adeudos/insertar']='Adeudos_Controller/insertar';
