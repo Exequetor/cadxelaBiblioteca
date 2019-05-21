@@ -25,11 +25,26 @@ body {
     font-style: italic;
     font-weight: 700;
     font-size: 1.2em;
-<<<<<<< HEAD
 }
 
 .bootstrap-select {
 	width: 100% !important;
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
+}
+
+.round-box {
+  border-radius: 25px;
+  background: #dbe9ff;
+  border: 2px solid #b7c1ff;
+  padding: 20px; 
+
+}
+
+.centrado {
+  margin: 0 auto;
+  width:80%;
+}
+
+.subtle-box {
+  border: 2px solid #d6e5ff;
+  padding: 20px; 
 }
