@@ -3,20 +3,13 @@
 <head>
 	<title>B&uacute;squeda de libros</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<<<<<<< HEAD
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 	<link href="<?php echo base_url("public/css/style.css"); ?>" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container">
 		<div class="row" id="busqueda">
-<<<<<<< HEAD
 			<form class="form-inline form-100" method="POST" action="<?php echo base_url("index.php/libros/buscar") ?>">
-=======
-			<form class="form-inline form-100" method="POST" action="<?php echo base_url("libros/buscar") ?>">
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 				<div class="form-group col-md-9">
 					<input class="form-control input-100" type="text" name="nombre_libro" placeholder="Buscar libro" />
 				</div>
@@ -27,7 +20,6 @@
 		</div>
 		<div class="divider"></div>
 		<div class="row">
-<<<<<<< HEAD
 		<?php 
 		if (isset($mensaje)) {
 			?>
@@ -37,8 +29,6 @@
 			<?php
 		}
 		 ?>
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 		<?php
 		/**
 		* Verificamos que se haya buscado un libro
@@ -57,14 +47,9 @@
 					if (in_array($libro->id_libro, $visitados)) {
 						continue;
 					}
-<<<<<<< HEAD
 					$autores = "";
 					array_push($visitados, $libro->id_libro);
 					$disponible = ($libro->activo == 1) ? true : false;
-=======
-					array_push($visitados, $libro->id_libro);
-					$disponible = ($libro->activo == 1) ? 'Esta disponible' : 'No esta disponible';
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 					?>
 			<div class="col-md-3 card-libro">
 				<div class="card">
@@ -75,19 +60,12 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">Categor&iacute;a: <?=$libro->categoria?></li>
 						<li class="list-group-item">P&aacute;ginas: <?=$libro->paginas?></li>
-<<<<<<< HEAD
-=======
-						<li class="list-group-item"><?=$disponible ?></li>
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 						<li class="list-group-item">Autores:
 						<?php 
 						foreach ($libro_buscado as $libro_) {
 							if ($libro_->id_libro == $libro->id_libro) {
-<<<<<<< HEAD
 								$autores .= $libro_->id_autor.'-';
 								//array_push($autores, $libro_->id_autor);
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 						?>
 						<p><?=$libro_->nombre.' '.$libro_->apellidos?></p>
 						<?php
@@ -95,7 +73,6 @@
 						}
 						 ?>
 						</li>
-<<<<<<< HEAD
 						<li class="list-group-item">
 							<div class="custom-switch" style="padding-left: 0 !important;">
 								<label style="margin-right: 40px;">Inactivo</label>
@@ -107,12 +84,6 @@
 					<div class="card-body">
 						<a href="#" class="card-link">Prestar</a>
 						<a href="#" class="card-link" onclick='openModal(<?=$libro->id_libro?>,<?=$libro->titulo?>,<?=$libro->paginas?>,<?=$libro->id_categoria?>,<?=$autores?>)'>Editar</a>
-=======
-					</ul>
-					<div class="card-body">
-						<a href="#" class="card-link">Prestar</a>
-						<a href="#" class="card-link">Editar</a>
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 					</div>
 				</div>
 			</div>
@@ -158,11 +129,7 @@
 					continue;
 				}
 				array_push($visitados, $libro->id_libro);
-<<<<<<< HEAD
 				$disponible = ($libro->activo == 1) ? true : false;
-=======
-				$disponible = ($libro->activo == 1) ? 'Esta disponible' : 'No esta disponible';
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 		?>
 			<div class="col-md-3 card-libro">
 				<div class="card">
@@ -173,23 +140,15 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">Categor&iacute;a: <?=$libro->categoria?></li>
 						<li class="list-group-item">P&aacute;ginas: <?=$libro->paginas?></li>
-<<<<<<< HEAD
-=======
-						<li class="list-group-item"><?=$disponible ?></li>
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 						<li class="list-group-item">Autores:
 						<?php 
 						foreach ($libros as $libro_) {
 							if ($libro_->id_libro == $libro->id_libro) {
-<<<<<<< HEAD
 								//array_push($autores, $libro_->id_autor);
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 						?>
 						<p><?=$libro_->nombre.' '.$libro_->apellidos?></p>
 						<?php
 							}
-<<<<<<< HEAD
 							$ready = true;
 						}
 						 ?>
@@ -205,15 +164,6 @@
 					<div class="card-body">
 						<a href="#" class="card-link">Prestar</a>
 						<a href="#" class="card-link" onclick='openModal(<?=$libro->id_libro?>)'>Editar</a>
-=======
-						}
-						 ?>
-						</li>
-					</ul>
-					<div class="card-body">
-						<a href="#" class="card-link">Prestar</a>
-						<a href="#" class="card-link">Editar</a>
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 					</div>
 				</div>
 			</div>
@@ -226,7 +176,6 @@
 		}
 		?>
 	</div>
-<<<<<<< HEAD
 	<!-- Modal cambiar estado a inactivo -->
 	<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -330,10 +279,4 @@
 		});
 	}
 </script>
-=======
-</body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 </html>

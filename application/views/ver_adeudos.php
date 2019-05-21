@@ -14,8 +14,17 @@
 <div class="container">
 		<div class="row justify-content-center">
 		<div class="col-sm-8">
-		<h3>Registro de adeudos</h3>
-		<table class="table table-bordered">
+		<h3>Adeudos</h3>
+		<div class="form-group">
+ 		<div class="row">		
+			<div class="form-group col-md-9">
+				<input class="form-control input-100" id="busqueda" type="text" name="busqueda" placeholder="Buscar adeudo por matricula" />
+			</div>
+			<div class="form-group col-md-3">
+				<button type="submit" class="btn btn-block btn-primary">Buscar</button>
+			</div>
+		</div>
+		<table class="table table-bordered" id="tabla_adeudos">
 			<thead>
 					<tr>
 						<th scope="col">Matricula</th>
@@ -50,4 +59,17 @@
 		</div>
 	</div>
 </body>
+<script>
+$(document).ready(function(){
+	$("#busqueda").keyup(function(){
+	_this = this;
+	$.each($("#tabla_adeudos tbody tr"), function() {
+		if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+		$(this).hide();
+		else
+		$(this).show();
+	});
+	});
+});
+</script>
 </html>

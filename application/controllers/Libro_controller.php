@@ -12,17 +12,11 @@ class Libro_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		/**
-<<<<<<< HEAD
 		* Cargamos el modelo de libros, autores, y categorias
 		**/
 		$this->load->model('Libro_model', 'libro_model', true);
 		$this->load->model('Autor_model', 'autor_model', true);
 		$this->load->model('Categoria_model', 'categoria_model', true);
-=======
-		* Cargamos el modelo de libros
-		**/
-		$this->load->model('Libro_model', 'libro_model', true);
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 	}
 
 	/**
@@ -33,11 +27,8 @@ class Libro_controller extends CI_Controller {
 	public function index()
 	{
 		$datos['libros'] = $this->libro_model->obtenerLibros();
-<<<<<<< HEAD
 		$datos['autores'] = $this->autor_model->obtenerAutores();
 		$datos['categorias'] = $this->categoria_model->obtenerCategorias();
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 		$this->load->view('view_busqueda_libro', $datos);
 	}
 
@@ -50,16 +41,12 @@ class Libro_controller extends CI_Controller {
 	{
 		$nombre = $this->input->post('nombre_libro');
 		$libro = $this->libro_model->buscarLibroPorNombre($nombre);
-<<<<<<< HEAD
 		$datos['autores'] = $this->autor_model->obtenerAutores();
 		$datos['categorias'] = $this->categoria_model->obtenerCategorias();
-=======
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
 		$datos['libro_buscado'] = $libro;
 		$datos['termino'] = $nombre;
 		$this->load->view('view_busqueda_libro', $datos);
 	}
-<<<<<<< HEAD
 
 	/**
 	*
@@ -210,6 +197,3 @@ class Libro_controller extends CI_Controller {
 	    exit();
 	}
 }
-=======
-}
->>>>>>> 927e8eba1a43217f33717d38f522f7a5f20c49da
