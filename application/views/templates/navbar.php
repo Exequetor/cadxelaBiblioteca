@@ -10,8 +10,14 @@
         	<li class="nav-item">
         		<a class="nav-link" href="<?php echo base_url()?>index.php/estudiantes">Estudiantes<span class="sr-only"></span></a>
         	</li> 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url()?>index.php/libros">Libros<span class="sr-only"></span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Libros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="<?php echo base_url()?>index.php/libros">Ver todos</a>
+                    <a class="dropdown-item" href="<?php echo base_url()?>index.php/libros/registro">Agregar</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos">Adeudos<span class="sr-only"></span></a>

@@ -7,6 +7,7 @@
 	<link href="<?php echo base_url("public/css/style.css"); ?>" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<?php $this->load->view('templates/navbar'); ?>	
 	<div class="container">
 		<div class="row" id="busqueda">
 			<?php 
@@ -154,7 +155,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		const url = 'http://localhost:8080/cadxelaBiblioteca/index.php/';
+		const url = 'http://localhost/cadxelaBiblioteca/index.php/';
 		const guardarAutorBtn = $("#guardarAutor");
 		const claveAutor = $("#claveAutor");
 		const nombreAutor = $("#nombreAutor");

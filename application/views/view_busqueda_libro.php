@@ -7,6 +7,7 @@
 	<link href="<?php echo base_url("public/css/style.css"); ?>" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<?php $this->load->view('templates/navbar'); ?>	
 	<div class="container">
 		<div class="row" id="busqueda">
 			<form class="form-inline form-100" method="POST" action="<?php echo base_url("index.php/libros/buscar") ?>">
@@ -248,7 +249,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
-	const url = 'http://localhost:8080/cadxelaBiblioteca/index.php/';
+	const url = 'http://localhost/cadxelaBiblioteca/index.php/';
 	$(document).ready(function () {
 		$(".changeActivo").on('change', function() {
 			let id = $(this).prop('id')
