@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CRUD empleados</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
+	
 	<div class="container">
 		<h2>Opciones de empleados</h2><hr>
-		<form action="<?php echo base_url();?>empleado_controller/guardar_empleado/" method="POST">
+		<form action="<?=base_url()?>index.php/empleado_controller/guardar_empleado" method="POST">
 			<div>
 				<div class="input-group form-group">
 				<span class="input-group-addon">
@@ -22,7 +16,7 @@
 						<span class="input-group-addon">
 							Nombre
 						</span>
-						<input type="text" class="form-control" id="nombre" name="nombre" value="" placeholder="Nombre">
+						<input type="text" class="form-control" id="nombre" name="nombre" value="" placeholder="Nombre" required="">
 					</div>
 				</div>
 				<div class="col colxs-6">
@@ -30,7 +24,7 @@
 						<span class="input-group-addon">
 							Apellido
 						</span>
-						<input type="text" class="form-control" id="apellidos" name="apellidos" value="" placeholder="apellidos">
+						<input type="text" class="form-control" id="apellidos" name="apellidos" value="" placeholder="apellidos" required="">
 					</div>
 				</div>
 			</div>
@@ -40,7 +34,7 @@
 						<span class="input-group-addon">
 							Rol
 						</span>
-						<input type="text" class="form-control" id="rol" name="rol" value="" placeholder="Rol">
+						<input type="text" class="form-control" id="rol" name="rol" value="" placeholder="Rol" required="">
 					</div>
 				</div>
 				<div class="col colxs-6">
@@ -48,13 +42,12 @@
 						<span class="input-group-addon">
 							Email
 						</span>
-						<input type="text" class="form-control" id="email" name="email" value="" placeholder="Email">
+						<input type="email" class="form-control" id="email" name="email" value="" placeholder="Email" required="">
 					</div>
 				</div>
 			</div>
 			<div class="text-center" >
-				<input type="submit" name="guardar" class="btn btn-success" value="Guardar" ></input>
-				<a href="" class="btn btn-primary">Nuevo empleado</a>
+				<input type="submit" name="guardar" class="btn btn-primary" value="Guardar Nuevo Emoleado" ></input>
 			</div>
 			
 		</form>
@@ -85,9 +78,7 @@
 					</tbody>
 				</table>
 			</div>
-		<a href="<?php echo base_url().'libros'?>">
+		<!--<a href="<?php echo base_url().'libros'?>">
 			Ir a busqueda de libro
-		</a>
+		</a>-->
 	</div>
-</body>
-</html>

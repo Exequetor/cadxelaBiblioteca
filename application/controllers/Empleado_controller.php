@@ -11,7 +11,9 @@ class Empleado_controller extends CI_Controller {
 	public function index()
 	{
 		$Empleados=$this->Empleados_model->consulta_empleados();
+		$this->load->view("templates/header");
 		$this->load->view("view_empleados",compact("Empleados"));
+		//$this->load->view("ver_adeudos");
 		
 	}
 	public function guardar_empleado(){
@@ -25,8 +27,8 @@ class Empleado_controller extends CI_Controller {
 				'email' => $this->input->post('email')
 			);
 			if ($this->Empleados_model->guardar_empleado($empleados)) {
-     header("Location:".base_url()."empleado_controller");
-				}	
+     			echo('<br><br><a href="'.base_url().'index.php/empleado_controller">Volver a la página de Empleados</a>');
+			}	
 		}
 	}
 	public function modificar_empleado($id=null)
@@ -34,9 +36,10 @@ class Empleado_controller extends CI_Controller {
 		if (!$id==null) {
 			$id=$this->db->escape((int)$id);
 			$empleado=$this->Empleados_model->obtener_empleado($id);
+			$this->load->view("templates/header");
 			$this->load->view("view_modificar_empleado",compact("empleado"));
 		}else{
-			header("Location:".base_url()."empleado_controller");
+			echo('<br><br><a href="'.base_url().'index.php/empleado_controller">Volver a la página de Empleados</a>');
 		}
 	}
 	public function acualizar_empleado(){
@@ -49,7 +52,7 @@ class Empleado_controller extends CI_Controller {
 			$email = $this->db->escape($_POST["email"]);
 		
 			if ($this->Empleados_model->actualizar_empleado($id_empleado,$nombre,$apellidos,$rol,$email)) {
-              		header("Location:".base_url()."empleado_controller");
+              		echo('<br><br><a href="'.base_url().'index.php/empleado_controller">Empleado actualizado volver a la página de Empleados</a>');
 				}	
 		}
 	}
@@ -57,7 +60,7 @@ class Empleado_controller extends CI_Controller {
 	public function eliminar_empleado(int $id){
 			if ($this->Empleados_model->eliminar_empleado($id)) 
 			{
-				header("Location:".base_url()."empleado_controller");
+				echo('<br><br><a href="'.base_url().'index.php/Empleado_controller">Empleado eliminado exitosamente volver a la página de Empleados</a>');
 			}
 	}
 }

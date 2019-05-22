@@ -1,6 +1,6 @@
 <div class="container">
 		<h2>Modificar empleado</h2><hr>
-		<form action="<?php echo base_url();?>empleado_controller/acualizar_empleado/" method="POST">
+		<form action="<?=base_url()?>index.php/empleado_controller/acualizar_empleado" method="POST">
 			<div class="form-group colxs-6">
 				<label>ID</label>
 				<input type="text" readonly="true" class="form-control" name="id" value="<?php echo $empleado->id_empleado; ?>">
@@ -44,7 +44,7 @@
 			</div>
 			<div class="text-center" >
 				<input type="submit" name="modificar" class="btn btn-success" value="Modificar" ></input>
-				<a href="" class="btn btn-primary">Cancelar</a>
+				<a href="<?=base_url()?>index.php/empleado_controller" class="btn btn-primary">Cancelar</a>
 			</div>
 			
 		</form>

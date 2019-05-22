@@ -15,8 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function guardar_empleado($empleados)
 		{
-			$this->db->insert('empleados',$empleados);
+			return $this->db->insert('empleados',$empleados);
 		}
+
 		public function obtener_empleado(int $id)
 		{
 			return  $this->db->query("SELECT * FROM empleados where id_empleado={$id}")->row();
