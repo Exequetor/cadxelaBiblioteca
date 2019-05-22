@@ -14,23 +14,61 @@ class Estudiantes extends CI_Controller {
 	public function index () {
 		$data['query'] = $this->model->queryAll();
 		$this->load->view('templates/header');
-		$this->load->view('estudiantes', $data);
+		$this->load->view('estudiantes/index', $data);
 	}
 
 	public function insert () {
-		$data = array(
-			'matricula' => $this->input->post('matricula'),
-			'nombre' => $this->input->post('nombre'),
-			'apellidos' => $this->input->post('apellidos')
-		);
+		if ($this->input->post('matricula')) {
+			$data = array(
+				'matricula' => $this->input->post('matricula'),
+				'nombre' => $this->input->post('nombre'),
+				'apellidos' => $this->input->post('apellidos')
+			);
 
-		$status = $this->model->insert($data);
-		switch($status) {
-			case 0: echo('Insert realizado con éxito'); break;
-			case 1: echo('Ya existe un estudiante con esa matrícula'); break;
-			case -1: echo('Error desconocido');
-		}
-		echo('<br><br><a href="'.base_url().'index.php/estudiantes">Volver a la página de estudiantes</a>');
+			$status = $this->model->insert($data);
+			switch($status) {
+				case 0: echo('Insert realizado con éxito');
+						break;
+				case 1: echo('Ya existe un estudiante con esa matrícula');
+						break;
+				case -1: echo('Error desconocido');
+			}
+			echo('<br><br><a href="'.base_url().'index.php/estudiantes">Volver a la página de estudiantes</a>');
+		} else
+			redirect('/estudiantes', 'refresh');
+	}
+
+	public function update() {
+		$data['segmento'] = $this->uri->segment(3);
+		if($data['segmento']) {
+			$this->load->view('templates/header');
+			$data['estudiante'] = $this->model->queryByMatricula($data['segmento']);
+			$this->load->view('estudiantes/update', $data);
+		} else if ($this->input->post('matricula')) {
+			$updateData = array(
+				'matricula' => $this->input->post('matricula'),
+				'nombre' => $this->input->post('nombre'),
+				'apellidos' => $this->input->post('apellidos'),
+				'activo' => empty($this->input->post('activo'))?'0':'1'
+			);
+
+
+			if(!$this->input->post('password')) {
+				$est = $this->model->queryByMatricula($updateData['matricula']);
+				$updateData['password'] = $est->password;
+			} else
+				$updateData['password'] = hash('sha256', $this->input->post('password'));
+
+			$status = $this->model->update($updateData);
+
+			switch($status) {
+				case 0: echo('Actualización de registro realizada con éxito');
+						break;
+				case -1: echo('Error desconocido');
+			}
+			echo('<br><br><a href="'.base_url().'index.php/estudiantes">Volver a la página de estudiantes</a>');
+		} else
+			redirect('/estudiantes', 'refresh');
 	}
 }
 ?>

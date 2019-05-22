@@ -3,10 +3,10 @@ $(document).ready( function () {
 	/**
 	* Autor: Carlos Hernández Montellano
 	*
-	* Convierte cualquier tabla con id="data-table" a un objeto JavaScript DataTable.
+	* Convierte cualquier tabla con la clase 'data-table' a un objeto JavaScript tipo DataTable.
 	*
 	*/
-    $('#data-table').DataTable( {
+    $('.data-table').DataTable( {
     	"language":{
 		    "sProcessing":     "Procesando...",
 		    "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -32,18 +32,18 @@ $(document).ready( function () {
 		    }
 		}
     });
-});
 
-/**
-* Autor: Carlos Hernández Montellano
-*
-* Descripción: Función que cambia el aspecto de la opción activa del navbar.
-*
-*/
-$(function(){
-    $('a').each(function(){
-        if ($(this).prop('href') == window.location.href) {
-            $(this).addClass('active'); $(this).parents('li').addClass('active');
-        }
-    });
+    /**
+	* Autor: Carlos Hernández Montellano
+	*
+	* Descripción: Función que cambia el aspecto de la opción activa del navbar.
+	*
+	*/
+	$(function(){
+	    $('a').each(function(){
+	        if ($(this).prop('href') == window.location.href) {
+	            $(this).addClass('active'); $(this).parents('li').addClass('active');
+	        }
+	    });
+	});
 });

@@ -33,6 +33,17 @@ class Estudiantes_model extends CI_model {
 	function queryAll() {
 		return $this->db->get('estudiantes');
 	}
+
+	function queryByMatricula($matricula) {
+		return $this->db->get_where('estudiantes', array('matricula' => $matricula))->row();
+	}
+
+	function update($data) {
+		$estudiante = $this->db->get_where('estudiantes', array('matricula' => $data['matricula']))->row();
+		$this->db->where('matricula', $data['matricula']);
+		$this->db->update('estudiantes', $data);
+		return 0;
+	}
 }
 
 ?>

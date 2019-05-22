@@ -48,3 +48,18 @@ body {
   border: 2px solid #d6e5ff;
   padding: 20px; 
 }
+
+input[type=checkbox]
+{
+  /* Doble tamaño para checkbox */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+  margin-left:10px;
+}
+
+input[type="text"]:read-only {
+  background: #dddddd;
+}
