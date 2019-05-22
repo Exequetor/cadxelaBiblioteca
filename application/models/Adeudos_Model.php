@@ -107,4 +107,21 @@ class Adeudos_Model extends CI_Model{
 			}
 		}
 	}
+
+		/*
+	By moises Veha Hernández 
+	Conulta que devuelve los datos de un adeudo buscando por matricula o libro 
+	*/
+	public function ver_adeudo(string $Radeudo)
+	{
+		//$this->db->like('matricula_estudiante',$Radeudo);
+		//$this->db->or_like('matricula',$Radeudo);
+		//$Radeudo=$this->db->get('adeudos');
+		return $this->db->query("SELECT libros.titulo,adeudos.matricula_estudiante,estudiantes.nombre,adeudos.fecha_reposicion  FROM libros,estudiantes,adeudos WHERE adeudos.matricula_estudiante=estudiantes.matricula and libros.id_libro=adeudos.id_libro AND adeudos.matricula_estudiante={$Radeudo} OR libros.titulo={$Radeudo}")->result();
+		if ($Radeudo->num_rows()>0) {
+			return $Radeudo->result();
+		}else{
+			return false;
+		}
+	}
 }

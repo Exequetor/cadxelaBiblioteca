@@ -15,6 +15,16 @@
 		<div class="row justify-content-center">
 		<div class="col-sm-8">
 		<h3>Registro de adeudos</h3>
+    <!--Barra de busqueda de adeudos By Moises Vega Hernández-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0" action="<?=base_url()?>index.php/adeudos_Controller/adeudos" method="POST">
+        <input name="b_adeudo" id="b_adeudo" class="form-control mr-sm-6" type="search" placeholder="Buscar Adeudo" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Buscar adeudo</button>
+      </form>
+    </div> 
+  </nav>
+    <!--fin de barra de busqueda de adeudos-->
 		<table class="table table-bordered">
 			<thead>
 					<tr>

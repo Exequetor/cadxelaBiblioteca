@@ -31,4 +31,26 @@ class Adeudos_Controller extends CI_Controller{
 		$this->load->view('ver_adeudos',$Datos);
 		//echo "insertar adeudo";
 	}
+
+
+	/*
+	by Moises Vega Hernández
+		Funcion que me sirvira para buscar un adeudo ya sea poe nombre de libro o matricula 	
+	*/
+	public function adeudos(){
+		if ($_POST) {
+			$matricula=$this->input->post('b_adeudo');
+		}else{
+			$matricula='';
+		}
+		if ($matricula!='') {
+			$Datos=$this->AM->ver_adeudo($matricula);
+			$this->load->view("templates/header");
+			$this->load->view('Adeudo',compact("Datos"));
+		}else{
+			echo('<br><br><a href="'.base_url().'index.php/Adeudos_Controller">error verifica tus datos regresar</a>');
+
+		}
+		
+	}
 }
