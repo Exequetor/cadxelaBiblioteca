@@ -19,7 +19,6 @@ class Adeudos_Controller extends CI_Controller{
 	public function index(){
 		$Datos['Estudiantes']=$this->AM->obtenerEstudiantes();
 		$Datos['LibrosPrestados']=$this->AM->obtenerLibrosPrestados();
-		$this->load->view("templates/header");
 		$this->load->view('adeudos_page',$Datos);
 	}
 
