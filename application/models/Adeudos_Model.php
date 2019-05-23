@@ -112,7 +112,7 @@ class Adeudos_Model extends CI_Model{
 	By moises Veha Hernández 
 	Conulta que devuelve los datos de un adeudo buscando por matricula o libro 
 	*/
-	public function ver_adeudo(string $Radeudo)
+	public function ver_adeudo($Radeudo)
 	{
 		//$this->db->like('matricula_estudiante',$Radeudo);
 		//$this->db->or_like('matricula',$Radeudo);

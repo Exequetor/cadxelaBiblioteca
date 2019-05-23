@@ -23,6 +23,12 @@
                 <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos">Adeudos<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+                    <form method="POST" action="<?=base_url()?>index.php/adeudos_Controller/adeudos"?>">
+                        <input type="hidden" name="b_adeudo" value="0000000001">
+                        <button type="submit" class="btn btn-link" style="color: rgba(255,255,255,.5);"> Mis adeudos </button>
+                    </form>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url()?>index.php/empleado_controller">Empleados<span class="sr-only"></span></a>
             </li>
         </ul>        

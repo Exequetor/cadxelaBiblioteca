@@ -7,7 +7,7 @@
 						<th>Libro Prestado</th>
 						<th>Matricula</th>
 						<th>Estudiante</th>
-						<th>Fecha de vencimiento</th>
+						<th>Fecha de reposici&oacute;n</th>
 					</thead>
 					<tbody>
 						<?php
