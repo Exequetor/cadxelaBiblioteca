@@ -14,6 +14,7 @@ class Adeudos_Controller extends CI_Controller{
 		/**
 		* Cargamos el modelo de adeudos
 		**/
+		$this->load->view("templates/header");
 		$this->load->model('Adeudos_Model', 'AM', true);
 	}
 	public function index(){
