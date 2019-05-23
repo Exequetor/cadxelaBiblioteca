@@ -117,7 +117,14 @@ class Adeudos_Model extends CI_Model{
 		//$this->db->like('matricula_estudiante',$Radeudo);
 		//$this->db->or_like('matricula',$Radeudo);
 		//$Radeudo=$this->db->get('adeudos');
-		return $this->db->query("SELECT libros.titulo,adeudos.matricula_estudiante,estudiantes.nombre,adeudos.fecha_reposicion  FROM libros,estudiantes,adeudos WHERE adeudos.matricula_estudiante=estudiantes.matricula and libros.id_libro=adeudos.id_libro AND adeudos.matricula_estudiante={$Radeudo} OR libros.titulo={$Radeudo}")->result();
+		return $this->db->query("SELECT * FROM 
+(
+    SELECT libros.titulo,estudiantes.nombre,adeudos.matricula_estudiante,adeudos.fecha_reposicion
+    FROM adeudos
+    INNER JOIN estudiantes ON  estudiantes.matricula=adeudos.matricula_estudiante
+    INNER JOIN libros ON libros.id_libro=adeudos.id_libro
+) as R_adeudo
+WHERE R_adeudo.titulo='{$Radeudo}' or  R_adeudo.matricula_estudiante='{$Radeudo}'")->result();
 		if ($Radeudo->num_rows()>0) {
 			return $Radeudo->result();
 		}else{
