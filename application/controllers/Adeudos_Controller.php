@@ -14,13 +14,12 @@ class Adeudos_Controller extends CI_Controller{
 		/**
 		* Cargamos el modelo de adeudos
 		**/
-		$this->load->view("templates/header");
 		$this->load->model('Adeudos_Model', 'AM', true);
 	}
 	public function index(){
 		$Datos['Estudiantes']=$this->AM->obtenerEstudiantes();
 		$Datos['LibrosPrestados']=$this->AM->obtenerLibrosPrestados();
-
+		$this->load->view("templates/header");
 		$this->load->view('adeudos_page',$Datos);
 	}
 
