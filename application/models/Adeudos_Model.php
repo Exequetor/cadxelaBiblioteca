@@ -42,12 +42,12 @@ class Adeudos_Model extends CI_Model{
 	public function insertarAdeudo(){
 		if($this->input->post()){
 			$adeudos=array(
-					'matricula_estudiante'=>$this->input->post('matricula_estudiante'),
-					'id_libro'=>$this->input->post('id_libro'),
-					'descripcion'=>$this->input->post('descripcion'),
-					'fecha_adeudo'=>$this->input->post('fechaadeudo'),
-					'fecha_reposicion'=>NULL,
-					'fecha_adeudo'=>$this->input->post('fecha_adeudo')
+				'matricula_estudiante'=>$this->input->post('matricula_estudiante'),
+				'id_libro'=>$this->input->post('id_libro'),
+				'descripcion'=>$this->input->post('descripcion'),
+				'fecha_adeudo'=>$this->input->post('fechaadeudo'),
+				'fecha_reposicion'=>NULL,
+				'fecha_adeudo'=>$this->input->post('fecha_adeudo')
 			);
 			$result = $this->db->insert('adeudos',$adeudos);
 			if($result)
@@ -81,26 +81,26 @@ class Adeudos_Model extends CI_Model{
 	public function registrarAdeudoAutomatico(){
 		$this->load->helper('date');
 		$this->db->select('matricula_estudiante, id_libro');
-        $this->db->from('prestamos');
-        $this->db->where("DATEDIFF(NOW(), fecha_devolucion) > 0");
+		$this->db->from('prestamos');
+		$this->db->where("DATEDIFF(NOW(), fecha_devolucion) > 0");
 
 		$results = $this->db->get();
 		
 		foreach ($results->result() as $result) {
 			$this->db->select('*');
-	        $this->db->from('adeudos');
-	        $this->db->where("matricula_estudiante", $result->matricula_estudiante);
-	        $this->db->where("id_libro", $result->id_libro);
-	        $r = $this->db->get();
+			$this->db->from('adeudos');
+			$this->db->where("matricula_estudiante", $result->matricula_estudiante);
+			$this->db->where("id_libro", $result->id_libro);
+			$r = $this->db->get();
 	        //echo $this->db->affected_rows()."-";
-	        if ($this->db->affected_rows() == 0) {
+			if ($this->db->affected_rows() == 0) {
 
 				$adeudos=array(
-						'matricula_estudiante'=>$result->matricula_estudiante,
-						'id_libro'=>$result->id_libro,
-						'descripcion'=>"Adeudo por atraso en la entrega",
-						'fecha_adeudo'=> now(),
-						'fecha_reposicion'=>NULL
+					'matricula_estudiante'=>$result->matricula_estudiante,
+					'id_libro'=>$result->id_libro,
+					'descripcion'=>"Adeudo por atraso en la entrega",
+					'fecha_adeudo'=> now(),
+					'fecha_reposicion'=>NULL
 				);
 
 				$this->db->insert('adeudos',$adeudos);
@@ -118,13 +118,13 @@ class Adeudos_Model extends CI_Model{
 		//$this->db->or_like('matricula',$Radeudo);
 		//$Radeudo=$this->db->get('adeudos');
 		return $this->db->query("SELECT * FROM 
-(
-    SELECT libros.titulo,estudiantes.nombre,adeudos.matricula_estudiante,adeudos.fecha_reposicion
-    FROM adeudos
-    INNER JOIN estudiantes ON  estudiantes.matricula=adeudos.matricula_estudiante
-    INNER JOIN libros ON libros.id_libro=adeudos.id_libro
-) as R_adeudo
-WHERE R_adeudo.titulo='{$Radeudo}' or  R_adeudo.matricula_estudiante='{$Radeudo}'")->result();
+			(
+			SELECT libros.titulo,estudiantes.nombre,adeudos.matricula_estudiante,adeudos.fecha_reposicion
+			FROM adeudos
+			INNER JOIN estudiantes ON  estudiantes.matricula=adeudos.matricula_estudiante
+			INNER JOIN libros ON libros.id_libro=adeudos.id_libro
+		) as R_adeudo
+		WHERE R_adeudo.titulo='{$Radeudo}' or  R_adeudo.matricula_estudiante='{$Radeudo}'")->result();
 		if ($Radeudo->num_rows()>0) {
 			return $Radeudo->result();
 		}else{
