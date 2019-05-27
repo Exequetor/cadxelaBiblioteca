@@ -19,9 +19,14 @@
                     <a class="dropdown-item" href="<?php echo base_url()?>index.php/libros/registro">Agregar</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos">Registrar adeudo<span class="sr-only"></span></a>
-                <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos/insertar">Ver adeudos<span class="sr-only"></span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Adeudos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="<?php echo base_url()?>index.php/adeudos">Registrar adeudo</a>
+                    <a class="dropdown-item" href="<?php echo base_url()?>index.php/adeudos/insertar">Ver adeudos</a>
+                </div>
             </li>
             <li class="nav-item">
                     <form method="POST" action="<?=base_url()?>index.php/adeudos_Controller/adeudos"?>">
