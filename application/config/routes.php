@@ -73,3 +73,4 @@ $route['libros/editar'] = 'libro_controller/actualizarLibro';
 **/
 $route['adeudos'] = 'Adeudos_Controller';
 $route['adeudos/insertar']='Adeudos_Controller/insertar';
+$route['adeudos/obtenerPrestamos/(:any)']='Adeudos_Controller/obtenerPrestamos/$1';

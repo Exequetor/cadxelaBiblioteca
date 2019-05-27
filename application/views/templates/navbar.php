@@ -20,7 +20,8 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos">Adeudos<span class="sr-only"></span></a>
+                <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos">Registrar adeudo<span class="sr-only"></span></a>
+                <a class="nav-link" href="<?php echo base_url()?>index.php/adeudos/insertar">Ver adeudos<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
                     <form method="POST" action="<?=base_url()?>index.php/adeudos_Controller/adeudos"?>">

@@ -30,6 +30,13 @@ class Adeudos_Controller extends CI_Controller{
 		$this->load->view('ver_adeudos',$Datos);
 		//echo "insertar adeudo";
 	}
+
+	public function obtenerPrestamos($matricula){
+		$Datos['prestados'] = $this->AM->obtenerLibrosPrestadosXMatricula($matricula);
+		header('Content-type: application/json; charset=utf-8');
+		echo json_encode($Datos);
+	    exit();
+	}
 	/*
 	by Moises Vega Hernández
 		Funcion que me sirvira para buscar un adeudo ya sea poe nombre de libro o matricula 	
