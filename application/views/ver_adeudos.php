@@ -22,8 +22,7 @@
 			</div>
 			<div class="form-group col-md-3">
 				<button type="submit" class="btn btn-block btn-primary">Buscar</button>
-
-				<a href="php echo base_url()?>index.php/adeudos" class="btn btn-block btn-primary">Agregar adeudo</a>
+				<a href="<?php echo base_url();?>index.php/adeudos" class="btn btn-block btn-primary">Agregar adeudo</a>
 			</div>
 		</div>
 		<table class="table table-bordered" id="tabla_adeudos">
