@@ -22,5 +22,9 @@ if (!$this->session->userdata('logged_in')) {
 </head>
 <body>
 	<?php
-		$this->load->view('templates/navbar');
+		if ($this->session->userdata('rol') == 'empleado') {
+    		$this->load->view('templates/navbar');
+		} else if($this->session->userdata('rol') == 'estudiante') {
+			$this->load->view('templates/navbar_estudiante');
+		}
 	?>	

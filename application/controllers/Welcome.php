@@ -9,7 +9,11 @@ class Welcome extends CI_Controller {
 
 	function index() {
 		$this->load->view('templates/header');
-		$this->load->view('welcome_message');
+		if($this->session->userdata('rol') == 'empleado')
+			$this->load->view('welcome_message');
+		else if ($this->session->userdata('rol') == 'estudiante'){
+			$this->load->view('estudiantes/welcome');
+		}
 	}
 }
 ?>

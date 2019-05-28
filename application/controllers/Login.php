@@ -9,7 +9,11 @@ class Login extends CI_Controller {
 	}
 
 	function index() {
-		$this->load->view('login');
+		if (!$this->session->userdata('logged_in')) {
+		    $this->load->view('login');
+		} else {
+			redirect('/welcome', 'refresh');
+		}
 	}
 
 	function signin() {
