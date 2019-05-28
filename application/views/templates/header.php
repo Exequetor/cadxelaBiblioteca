@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (!$this->session->userdata('logged_in')) {
+    redirect(base_url());
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,4 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Biblioteca</title>    
 </head>
 <body>
-	<?php $this->load->view('templates/navbar'); ?>	
+	<?php
+		$this->load->view('templates/navbar');
+	?>	

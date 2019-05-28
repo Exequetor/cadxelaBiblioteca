@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-	<link rel="stylesheet" href="<?= base_url();?>public/css/logging.css" >
+	<link rel="stylesheet" href="<?= base_url();?>public/css/login.css" >
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <script src="<?= base_url();?>public/js/particles.min.js"></script>
@@ -26,27 +26,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="card-header">
 					<h4>Iniciar sesión</h4>
 				</div>
+				<?php
+					if(isset($bad_login)) {
+						echo($alert);
+					}
+				?>
 				<div class="card-body">
-					<form>
+					<form role="form" action="<?=base_url()?>index.php/login/signin" method="POST">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" id="user" name="user" class="form-control" placeholder="Correo/Matrícula">
+							<input type="text" id="user" name="user" class="form-control" placeholder="Matrícula/Correo" required>
 							
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" id="password" name="password" class="form-control" placeholder="Password">
+							<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 						</div>
 						<div class="custom-control custom-radio">
-  							<input type="radio" class="custom-control-input" id="estudiante" name="rol" checked>
+  							<input type="radio" class="custom-control-input" id="estudiante" name="rol" value="estudiante" checked>
  							<label class="custom-control-label" for="estudiante">Entrar como estudiante</label>
 						</div>
 						<div class="custom-control custom-radio">
-							<input type="radio" class="custom-control-input" id="empleado" name="rol">
+							<input type="radio" class="custom-control-input" id="empleado" name="rol" value="empleado">
 							<label class="custom-control-label" for="empleado">Entrar como empleado</label>
 						</div>
 						<br>

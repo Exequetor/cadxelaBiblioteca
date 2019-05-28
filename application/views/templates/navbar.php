@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url()?>index.php/">Inicio <span class="sr-only"></span></a>
+                <a class="nav-link" href="<?php echo base_url()?>index.php/welcome">Inicio <span class="sr-only"></span></a>
             </li>  
         	<li class="nav-item">
         		<a class="nav-link" href="<?php echo base_url()?>index.php/estudiantes">Estudiantes<span class="sr-only"></span></a>
@@ -29,15 +29,20 @@
                 </div>
             </li>
             <li class="nav-item">
-                    <form method="POST" action="<?=base_url()?>index.php/adeudos_Controller/adeudos"?>">
-                        <input type="hidden" name="b_adeudo" value="0000000001">
-                        <button type="submit" class="btn btn-link" style="color: rgba(255,255,255,.5);"> Mis adeudos </button>
-                    </form>
+                <form method="POST" action="<?=base_url()?>index.php/adeudos_Controller/adeudos"?>">
+                    <input type="hidden" name="b_adeudo" value="0000000001">
+                    <button type="submit" class="btn btn-link" style="color: rgba(255,255,255,.5);"> Mis adeudos </button>
+                </form>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url()?>index.php/empleado_controller">Empleados<span class="sr-only"></span></a>
             </li>
-        </ul>        
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item navbar-right">
+                <a class="nav-link" href="<?php echo base_url()?>index.php/login/logout"><i class="fas fa-sign-out-alt"></i>Salir de sesión<span class="sr-only"></span></a>
+            </li>
+        </ul>      
     </div>
 </nav>
-
