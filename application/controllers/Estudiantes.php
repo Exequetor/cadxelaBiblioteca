@@ -27,7 +27,7 @@ class Estudiantes extends CI_Controller {
 
 			$status = $this->model->insert($data);
 			switch($status) {
-				case 0: echo('Insert realizado con éxito');
+				case 0: echo('Insert realizado con éxito<br><br>Por defecto, el password del estudiante es su matrícula');
 						break;
 				case 1: echo('Ya existe un estudiante con esa matrícula');
 						break;
@@ -43,6 +43,7 @@ class Estudiantes extends CI_Controller {
 		if($data['segmento']) {
 			$this->load->view('templates/header');
 			$data['estudiante'] = $this->model->queryByMatricula($data['segmento']);
+			$data['adeudos'] = $this->model->getAdeudosByMatricula($data['segmento']);
 			$this->load->view('estudiantes/update', $data);
 		} else if ($this->input->post('matricula')) {
 			$updateData = array(
@@ -58,7 +59,6 @@ class Estudiantes extends CI_Controller {
 				$updateData['password'] = $est->password;
 			} else
 				$updateData['password'] = hash('sha256', $this->input->post('password'));
-
 			$status = $this->model->update($updateData);
 
 			switch($status) {
@@ -69,6 +69,11 @@ class Estudiantes extends CI_Controller {
 			echo('<br><br><a href="'.base_url().'index.php/estudiantes">Volver a la página de estudiantes</a>');
 		} else
 			redirect('/estudiantes', 'refresh');
+	}
+	public function status () {
+		$data['id_adeudo'] = $this->uri->segment(3);
+		$this->model->changeAdeudoStatus($data['id_adeudo']);
+		redirect('/estudiantes', 'refresh');
 	}
 }
 ?>

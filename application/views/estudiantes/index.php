@@ -3,6 +3,9 @@
 		
 		<!-- Tabla de estudiantes dentro del sistema -->
 		<center><h1>Estudiantes registrados</h1></center>
+		<div class="alert alert-info">
+			<center>Haz click en la matrícula de un estudiante para modificar sus datos o sus adeudos</center>
+		</div>
 		<table id="data-table" class="display data-table">
 			<thead>
 		        <tr>
