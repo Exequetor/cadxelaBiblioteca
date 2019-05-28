@@ -33,6 +33,20 @@ class Adeudos_Model extends CI_Model{
 		return $users;
 	}
 
+	public function obtenerLibrosPrestadosXMatricula($matricula){
+		$this->db->select('*');
+		$this->db->from('prestamos p');
+		$this->db->join('libros l','p.id_libro=l.id_libro','left');
+		$this->db->where('p.matricula_estudiante', $matricula);
+		$query = $this->db->get();
+		if($query->num_rows() > 0)
+		{
+			return $query->result();
+		}else{
+			return null;
+		}
+	}
+
 	public function obtenerLibrosPrestados(){
 		$result=$this->db->query('SELECT * FROM libros,estudiantes,prestamos WHERE prestamos.matricula_estudiante=estudiantes.matricula and prestamos.id_libro=libros.id_libro');
 		$libros = $result->result_array();

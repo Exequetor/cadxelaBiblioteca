@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 		<div class="row justify-content-center">
-		<div class="col-sm-8">
+		<div class="col-sm-12">
 		<h3>Adeudos</h3>
 		<div class="form-group">
  		<div class="row">		
@@ -22,14 +22,15 @@
 			</div>
 			<div class="form-group col-md-3">
 				<button type="submit" class="btn btn-block btn-primary">Buscar</button>
+				<a href="<?php echo base_url();?>index.php/adeudos" class="btn btn-block btn-primary">Agregar adeudo</a>
 			</div>
 		</div>
 		<table class="table table-bordered" id="tabla_adeudos">
 			<thead>
 					<tr>
 						<th scope="col">Matricula</th>
-						<th scope="col">Nombre</th>
-						<th scope="col">Titulo</th>
+						<th scope="col">Estudiante</th>
+						<th scope="col">Titulo del libro en adeudo</th>
 						<th scope="col">Descripción</th>
 						<th scope="col">Fecha adeudo</th>
 						<th scope="col">Fecha reposición</th>
@@ -39,9 +40,9 @@
 				try{
 					if(isset($Adeudos)){
 						foreach($Adeudos as $adeudos){
-		?> <tr>
+		?> <tr id="<?=$adeudos->nombre?> <?=$adeudos->apellidos?>">
 				<td><?=$adeudos->matricula?></td>
-			    <td><?=$adeudos->nombre?></td>
+			    <td><?=$adeudos->nombre?> <?=$adeudos->apellidos?></td>
 			    <td><?=$adeudos->titulo?></td>
 			    <td><?=$adeudos->descripcion?></td>
 			    <td><?=$adeudos->fecha_adeudo?></td>
